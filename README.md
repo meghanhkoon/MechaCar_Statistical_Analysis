@@ -82,13 +82,13 @@ Using R's t.test() function, we have to determine if all manufacturing lots and 
 t.test(SuspensionCoil_table$PSI,mu=1500)
 ```
 
-###Results for All Manufacturing Lots: 
+### Results for All Manufacturing Lots: 
 ![t.test1.png](Images/t.test1.png)
 
 - We see that for all manufacturing lots, the ***p-value is 0.06028*** which is greater than the common significance level of 0.05, there is not enough evidence to support rejecting the null hypothesis. Therefore, the mean of all manufacturing lots is statistically similar to the population mean of 1500 pounds per square inch. 
 
 
-###Results for each individual Manufacturing Lot: 
+### Results for each individual Manufacturing Lot: 
 ![ttest_lot1.png](Images/ttest_lot1.png)
 ![ttest_lot2.png](Images/ttest_lot2.png)
 ![ttest_lot3.png](Images/ttest_lot3.png)
@@ -108,15 +108,18 @@ An example study was designed to compare the performance of the MechaCar vehicle
 
 ### Design Questions:
 1. What metric or metrics are you going to test?
-- Since suspension coil PSI was already tested, Safety Rating and Cost would be a great next research design. 
+
+Since suspension coil PSI was already tested, Safety Rating and Cost would be a great next research design. 
 
 2. What is the null hypothesis?
-Hypothesis: If there is a correlation between safety rating and cost, the higher the safety rating the car will be more expensive. 
 
-Null Hypothesis: There is no relationship between safety rating and cost. Therefore, there will be a zero slope between safety rating (independent variable) and cost (dependent variable).
+- Hypothesis: If there is a correlation between safety rating and cost, the higher the safety rating the car will be more expensive. 
+- Null Hypothesis: There is no relationship between safety rating and cost. Therefore, there will be a zero slope between safety rating (independent variable) and cost (dependent variable).
 
 3. What statistical test would you use to test the hypothesis and why? 
+
 A linear regression test could be used to test this hypothesis to see if there is a correlation/ relationsip between the two variables. If there is a significant linear relationship, we could also predict the cost of cars outside of the dataset from their safety rating. 
 
 4. What data is needed to run the statistical test?
+
 In order to perform this statistical test, we would need a dataset to include the safety rating on the MechaCars and the cost of each car as well. 
