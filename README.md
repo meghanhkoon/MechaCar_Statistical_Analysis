@@ -1,6 +1,25 @@
 # MechaCar_Statistical_Analysis
 Statistics and R 
 
+## Overview 
+***Background***
+To help the company AutosRUs, we are using RStudio to help the data analytics team review production data that could help the manufacturing team. 
+
+***Purpose***
+The purpose of this challenge is to:
+
+- Perform multiple linear regression analysis to identify which variables in the dataset predict the mpg of MechaCar prototypes.
+- Collect summary statistics on the pounds per square inch (PSI) of the suspension coils from the manufacturing lots.
+- Run t-tests to determine if the manufacturing lots are statistically different from the mean population.
+- Design a statistical study to compare vehicle performance of the MechaCar vehicles against vehicles from other manufacturers. For each statistical analysis, you’ll write a summary interpretation of the findings.
+
+
+## Resources 
+- Original Data Sources: [MechaCar_mpg.csv](https://github.com/meghanhkoon/MechaCar_Statistical_Analysis/blob/main/MechaCar_mpg.csv), [Suspension_Coil.csv](https://github.com/meghanhkoon/MechaCar_Statistical_Analysis/blob/main/Suspension_Coil.csv)
+- Software: RStudio, dplyr library 
+
+
+## Results
 ## Linear Regression to Predict MPG 
 From the original dataset's variables (vehicle length, weight, spoiler angle, drivetrain and ground clearance) , we first read our original csv into a table and performed Linear Regression using the lm() function in R. To find our p-value and r-squared value for the linear regression model, we had to use the summary function as well. 
 ```
@@ -78,8 +97,26 @@ t.test(SuspensionCoil_table$PSI,mu=1500)
 
 2. With ***Lot 2 p-value = 0.6072 > 0.05***, we also fail to reject the null hypothesis. There is no statistical difference between the mean of lot 2 and population mean. 
 
-3.***Lot 3 p-value = 0.04168 < 0.05*** which means there is enough evidence to reject the null hypothesis. In Lot 3, we can accept the hypothesis and conclude that the sample mean from lot 3 and the population mean (presumed 1500 PSI) are statistically different. This means that normal distribution and normality cannot be assumed for this sample. 
+3. ***Lot 3 p-value = 0.04168 < 0.05*** which means there is enough evidence to reject the null hypothesis. In Lot 3, we can accept the hypothesis and conclude that the sample mean from lot 3 and the population mean (presumed 1500 PSI) are statistically different. This means that normal distribution and normality cannot be assumed for this sample. 
 
 In summary, overall manufacturing, lot 1, and lot 2 all show normal distributions where their means are statistically similar to the population mean (1500 pounds per square inch). Therefore, there is not enough evidence to support rejecting the null hypothesis. 
 
 
+
+## Study Design: MechaCar vs. Competition
+An example study was designed to compare the performance of the MechaCar vehicles against the performance of vehicles from other manufacturers. Since suspension coil PSI was already tested, Safety Rating and Cost would be a great next research design. 
+
+### Design Questions:
+1. What metric or metrics are you going to test?
+- Since suspension coil PSI was already tested, Safety Rating and Cost would be a great next research design. 
+
+2. What is the null hypothesis?
+Hypothesis: If there is a correlation between safety rating and cost, the higher the safety rating the car will be more expensive. 
+
+Null Hypothesis: There is no relationship between safety rating and cost. Therefore, there will be a zero slope between safety rating (independent variable) and cost (dependent variable).
+
+3. What statistical test would you use to test the hypothesis and why? 
+A linear regression test could be used to test this hypothesis to see if there is a correlation/ relationsip between the two variables. If there is a significant linear relationship, we could also predict the cost of cars outside of the dataset from their safety rating. 
+
+4. What data is needed to run the statistical test?
+In order to perform this statistical test, we would need a dataset to include the safety rating on the MechaCars and the cost of each car as well. 
