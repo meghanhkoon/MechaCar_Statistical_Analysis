@@ -36,10 +36,7 @@ mpg = 6.267(vehicle_length) + 1.245(vehicle_weight) + 6.877(spoiler_angle) + 3.5
 
 
 ## Summary Statistics on Suspension Coils 
-The MechaCar Suspension_Coil.csv dataset demonstrates the weight capacities of suspension coils. We are testing to see if the manufacturing process of suspension coils are consistent across production lots. To do so, we are using R to create summary statistics to show: 
-
--The suspension coil’s PSI continuous variable across all manufacturing lots.
--The following PSI metrics for each lot: mean, median, variance, and standard deviation.
+The MechaCar Suspension_Coil.csv dataset demonstrates the weight capacities of suspension coils. We are testing to see if the manufacturing process of suspension coils are consistent across production lots. To do so, we are using R to create summary statistics to show the suspension coil’s PSI continuous variable across all manufacturing lots (population) and for each individual lot (sample).
 
 After loading the dataset, we found the total_summary of the entire population. To find the mean, variance, and standard deviation of the suspension coil's PSI column, we used the summarize() function in R: 
 ```
@@ -60,3 +57,29 @@ When comparing the sample population to the population summary statistics, the m
 
 
 ## T-Tests on Suspension Coils
+Using R's t.test() function, we have to determine if all manufacturing lots and each individual lot are statistically different from the population mean of 1,500 pounds per square inch. To do so, we first tested to see if the PSI across all manufacturing lots are statistically different from the mean of 1,500 PSI. 
+
+```
+t.test(SuspensionCoil_table$PSI,mu=1500)
+```
+
+###Results for All Manufacturing Lots: 
+![t.test1.png](Images/t.test1.png)
+
+- We see that for all manufacturing lots, the ***p-value is 0.06028*** which is greater than the common significance level of 0.05, there is not enough evidence to support rejecting the null hypothesis. Therefore, the mean of all manufacturing lots is statistically similar to the population mean of 1500 pounds per square inch. 
+
+
+###Results for each individual Manufacturing Lot: 
+![ttest_lot1.png](Images/ttest_lot1.png)
+![ttest_lot2.png](Images/ttest_lot2.png)
+![ttest_lot3.png](Images/ttest_lot3.png)
+
+1. With ***Lot 1's p-value = 1 > 0.05***, we fail to reject the null hypothesis. Therefore, there is no statistical difference between the mean of lot 1 and population mean (1500 PSI). 
+
+2. With ***Lot 2 p-value = 0.6072 > 0.05***, we also fail to reject the null hypothesis. There is no statistical difference between the mean of lot 2 and population mean. 
+
+3.***Lot 3 p-value = 0.04168 < 0.05*** which means there is enough evidence to reject the null hypothesis. In Lot 3, we can accept the hypothesis and conclude that the sample mean from lot 3 and the population mean (presumed 1500 PSI) are statistically different. This means that normal distribution and normality cannot be assumed for this sample. 
+
+In summary, overall manufacturing, lot 1, and lot 2 all show normal distributions where their means are statistically similar to the population mean (1500 pounds per square inch). Therefore, there is not enough evidence to support rejecting the null hypothesis. 
+
+
